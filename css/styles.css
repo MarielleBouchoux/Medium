@@ -25,6 +25,7 @@ Si le font-size de l'élément root est de 62,5% alors 1rem vaut 10px */
 body {
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
+  line-height: 2rem;
 }
 
 h1,
@@ -34,6 +35,12 @@ h4,
 h5,
 h6 {
   font-family: "Staatliches", cursive;
+  margin: 1rem 0;
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
 }
 
 a {
@@ -42,8 +49,16 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 1rem 0;
+}
+
 ul {
   list-style: none;
+}
+/* pour pas que les images déforment notre grille */
+img {
+  max-width: 100%;
 }
 
 /* utility */
@@ -60,6 +75,11 @@ ul {
 
 .text-primary:hover {
   opacity: 0.8;
+}
+
+.text-hint {
+  color: var(--gray-hint);
+  font-size: 1.2rem;
 }
 
 .btn {
@@ -80,6 +100,12 @@ ul {
 .btn-light:hover {
   background: var(--primary);
   color: white;
+}
+
+/* generic */
+.article-author {
+  font-weight: 700;
+  font-size: 1.4rem;
 }
 
 /* header */
@@ -117,4 +143,49 @@ nav {
   padding: 1rem;
   position: sticky;
   top: 0;
+  background: white;
+}
+
+/* showcase */
+.showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: auto auto auto; */
+  grid-auto-rows: auto;
+  gap: 20px;
+  padding: 2rem 0;
+}
+
+.showcase article:first-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+}
+
+.showcase article:last-child {
+  grid-column: 3 / 4;
+  grid-row: 1 / 4;
+}
+
+.article-small {
+  display: grid;
+  grid-template-columns: 80px auto;
+  grid-template-rows: 80px;
+  grid-auto-rows: auto;
+  column-gap: 10px;
+}
+.article-small p {
+  margin: 0.5rem 0;
+}
+.article-small .article-content {
+  grid-column: span2;
+  max-height: 6rem;
+  overflow: hidden;
+}
+
+.article-small .article-author {
+  grid-column: span2;
+}
+
+.article-small .text-hint {
+  grid-column: span2;
 }
